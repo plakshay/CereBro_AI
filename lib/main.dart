@@ -1,4 +1,5 @@
 import 'package:cerebro_ai/pages/home_page.dart';
+import 'package:cerebro_ai/theme/Appcolors.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,6 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.background,
+      ),
       debugShowCheckedModeBanner: false,
       title: 'CereBro_AI',
       home: HomePage(),
