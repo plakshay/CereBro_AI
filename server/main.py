@@ -1,4 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI # type: ignore
+from pydantic_models.chat_body import ChatBody
+from services.search_service import SearchService # type: ignore
 
 from pydantic_models.chat_body import ChatBody
 from services.search_service import SearchService
@@ -18,6 +20,5 @@ def chat_endpoint(body: ChatBody):
     # sort the resource
     # generate the response using LLMs(gemini here) 
     # for all this we will create a separate class and add them to the services section in server
-
 
     return body.query

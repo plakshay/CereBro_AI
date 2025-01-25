@@ -1,7 +1,8 @@
 from dotenv import load_dotenv
 from pydantic_settings import BaseSettings
 
-load_dotenv() # loads the env using the loadenv package
+# Load environment variables from the .env file
+load_dotenv()
 
-class Settings(BaseSettings): # pydantic pulls the value for the api key with the specific name i.e.  TAVILY_API_KEY
-    TAVILY_API_KEY : str ="" # starts fetching the API key from the .env file 
+class Settings(BaseSettings):
+    TAVILY_API_KEY: str = ""  # Fetches the API key from the .env file, defaults to an empty string if not set
