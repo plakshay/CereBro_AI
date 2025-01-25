@@ -28,7 +28,7 @@ class LLMService:
         Think and reason deeply. Ensure it answers the query the user is asking. Do not use your knowledge until it is absolutely necessary.
         """
 
-        response = self.model.generate_content(full_prompt, stream=True)
+        response = self.model.generate_content(full_prompt, stream=True) #stream provides the realtime data back to the client
 
         for chunk in response:
-            yield chunk.text
+            yield chunk.text #yield returns multiple data values, function becomes a generator
