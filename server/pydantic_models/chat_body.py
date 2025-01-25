@@ -1,4 +1,4 @@
 from pydantic import BaseModel  
 
 class ChatBody(BaseModel):
-    query:str # this will convert any type data into string -- type validation
+    query: str  # This will convert any type of data into a string with type validation

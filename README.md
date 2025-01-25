@@ -1,4 +1,4 @@
-# cerebro_ai
+# CEREBRO AI
 
 A new Flutter project.
 
