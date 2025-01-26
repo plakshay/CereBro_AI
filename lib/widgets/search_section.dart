@@ -1,10 +1,23 @@
+import 'package:cerebro_ai/services/chat_web_service.dart';
 import 'package:cerebro_ai/theme/Appcolors.dart';
 import 'package:cerebro_ai/widgets/search_bar_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SearchSection extends StatelessWidget {
-  const SearchSection({super.key}); // making constructor
+class SearchSection extends StatefulWidget {
+  const SearchSection({super.key}); 
+  @override
+  State<SearchSection> createState() => _SearchSectionState();
+}
+
+class _SearchSectionState extends State<SearchSection> {
+ // making constructor
+ final queryController = TextEditingController();
+
+ @override
+  void dispose() {
+    queryController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +49,7 @@ class SearchSection extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextField(
+                  controller: queryController,
                   decoration: InputDecoration(
                     hintText: "Search anything...",
                     hintStyle:
@@ -62,15 +76,20 @@ class SearchSection extends StatelessWidget {
                         icon: Icons.add_circle_outline_outlined,
                         text: "Attach"),
                     Spacer(),
-                    Container(
-                      padding: EdgeInsets.all(9),
-                      decoration: BoxDecoration(
-                        color: AppColors.submitButton,
-                        borderRadius: BorderRadius.circular(40),
-                      ),
-                      child: Icon(
-                        Icons.arrow_forward,
-                        size: 16,
+                    GestureDetector(
+                      onTap: (){
+                        ChatWebService().chat(queryController.text.trim());
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(9),
+                        decoration: BoxDecoration(
+                          color: AppColors.submitButton,
+                          borderRadius: BorderRadius.circular(40),
+                        ),
+                        child: Icon(
+                          Icons.arrow_forward,
+                          size: 16,
+                        ),
                       ),
                     )
                   ],

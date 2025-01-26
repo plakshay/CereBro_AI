@@ -31,9 +31,9 @@ async def websocket_chat_endpoint (websocket : WebSocket): #websocket provides b
         query = data.get("query") 
 
         search_results = search_services.web_search(query)
-        print(search_results)
+        
         sorted_results = sort_source_services.sort_sources(query, search_results)
-        print(sorted_results)
+        
 
         #send the data back to the user
         await asyncio.sleep(0.1) 
