@@ -1,24 +1,37 @@
+import 'package:cerebro_ai/services/chat_web_service.dart';
 import 'package:cerebro_ai/theme/Appcolors.dart';
 import 'package:cerebro_ai/widgets/search_section.dart';
 import 'package:cerebro_ai/widgets/side_navbar.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  String fullresponse = "";
+  @override
+  void initState() {
+    super.initState();
+    ChatWebService().connect();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Row(
       children: [
         //side navbar
-        SideNavbar(),
+        SideBar(),
         //search section
         Expanded(
           // within a column expanded takes the entire width of the page
           child: Column(
             children: [
               Expanded(child: SearchSection()),
+
               Container(
                 // footer
                 padding: EdgeInsets.symmetric(vertical: 16),

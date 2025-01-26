@@ -1,3 +1,4 @@
+import 'package:cerebro_ai/pages/chat_page.dart';
 import 'package:cerebro_ai/pages/home_page.dart';
 import 'package:cerebro_ai/theme/Appcolors.dart';
 import 'package:flutter/material.dart';

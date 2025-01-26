@@ -1,16 +1,15 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 import 'package:cerebro_ai/theme/Appcolors.dart';
 
-class SidebarButton extends StatelessWidget {
-  final bool isexpanded;
-  final IconData iconData;
+class SideBarButton extends StatelessWidget {
+  final bool isCollapsed;
+  final IconData icon;
   final String text;
-  const SidebarButton({
+  const SideBarButton({
     super.key,
-    required this.isexpanded,
-    required this.iconData,
+    required this.isCollapsed,
+    required this.icon,
     required this.text,
   });
 
@@ -18,26 +17,25 @@ class SidebarButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment:
-          isexpanded ? MainAxisAlignment.start : MainAxisAlignment.center,
+          isCollapsed ? MainAxisAlignment.center : MainAxisAlignment.start,
       children: [
         Container(
           margin: EdgeInsets.symmetric(vertical: 14, horizontal: 10),
           child: Icon(
-            iconData,
+            icon,
             color: AppColors.iconGrey,
             size: 22,
           ),
         ),
-        isexpanded
-            ? Text(
+        isCollapsed
+            ? const SizedBox()
+            : Text(
                 text,
                 style: TextStyle(
-                  // color: AppColors.textGrey,
-                  fontSize: 14,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               )
-            : const SizedBox(),
       ],
     );
   }
